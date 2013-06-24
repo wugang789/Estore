@@ -1,0 +1,29 @@
+package shusu;
+
+public class MonkeyTest {
+	int peachNumber=0;//桃子个数
+	int monkeyNumber=5;//猴子个数
+	int fs=1;//分的次数
+	int testNumber=50000;//测试数据
+    private int Monkey(int k){
+    	if(k==testNumber){
+    		System.out.println("测试数据完成");
+    		return 0;
+    	}else{
+    		if((k-1)%monkeyNumber==0&&fs<=monkeyNumber){
+    			if(fs==monkeyNumber){
+    				System.out.println("桃子个数"+peachNumber+"次数"+fs);
+    				return 0;
+    			}
+    			fs+=1;
+    			return Monkey((k-1)/5*4);
+    		}else{
+    			fs=1;
+    			return Monkey(peachNumber+=1);
+    		}
+    	}
+    }
+	public static void main(String[] args) {
+		new MonkeyTest().Monkey(0);
+	}
+}
